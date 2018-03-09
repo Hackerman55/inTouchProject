@@ -7,3 +7,5 @@ class Profile(models.Model):
     description = models.CharField(max_length=50)
     vk = models.CharField(max_length=50, blank=True)
     telegram = models.CharField(max_length=50, blank=True)
+def __str__(self):
+    return self.name
