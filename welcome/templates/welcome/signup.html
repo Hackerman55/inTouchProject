@@ -1,0 +1,19 @@
+{% extends "welcome/base.html" %}
+{% load staticfiles %}
+    {% block content %}
+        <div class="signup">
+            <h1>inTouch</h1>
+        <hr>
+            <form  method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                    <p>{{ field }}</p>
+                {% endfor %}
+                <br>
+                <input class="submit" type="submit" value="Регистрация">
+                <p class="par">Есть аккаунт? <a href="#">Войти</a></p>
+                <p class="par">Регистрируясь, вы соглашаетесь с нашими Условиями и Политикой конфиденциальности.</p>
+            </form>
+        </div>
+    {% endblock %}
+

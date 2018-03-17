@@ -3,9 +3,9 @@ html, body {
 	padding: 0;
 	height: 100%;
 	width: 100%;
-    background: #7acce9; /*#314755;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #1473da, #7acce9);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #1473da, #7acce9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #314755; #314755;
+    background: -webkit-linear-gradient(to left, #1473da, #7acce9);
+    background: linear-gradient(to left, #1473da, #7acce9);
 
 }
 
@@ -19,7 +19,7 @@ html, body {
 }
 .logo {
 	margin-left: 10%;
-	margin-top: 0.2%;
+	margin-top: 0.5%;
 	float: left;
 	height: 90%;
 }
@@ -42,8 +42,8 @@ html, body {
 	color: black;
 }
 .navbar > ul > li a:hover {
-	color: #7acce9;
-	transition: 0.4s;
+	color: #3897f0;
+	transition: 0.15s;
 	cursor: pointer;
 }
 .navbar a.active {
@@ -54,7 +54,7 @@ html, body {
  }
 
 #btn {
-    border-radius: 0;
+	border-radius: 0;
     font-family: 'Fira Sans Condensed', sans-serif;
     font-size: 15px;
     color: #000;
@@ -63,13 +63,14 @@ html, body {
     letter-spacing: 2px;
 }
 #btn:hover {
-	color: #7acce9;
-	border: solid #7acce9 1px;;
-	transition: 0.4s;
+	background-color: #3897f0;
+	color: #fff;
+	border: solid #fff 1px;;
+	transition: 0.15s;
 	cursor: pointer;
 }
 #btn:not(:hover) {
- 	transition: 0.5s;
+ 	transition: 0.3s;
  }
 
 
@@ -93,7 +94,7 @@ html, body {
 }
 #btnlogin {
     text-decoration: none;
-    border-radius: 20px;
+    border-radius: 5px;
     font-family: 'Fira Sans Condensed', sans-serif;
     font-size: 15px;
     color: #fff;
@@ -102,11 +103,12 @@ html, body {
     letter-spacing: 2px;
 }
 #btnlogin:hover {
-	color: #fff;
-	border: solid #fff 1px;;
-	transition: 0.4s;
+	color: #3897f0;
+	background-color: #fff;
+	border: solid #3897f0 1px;;
+	transition: 0.15s;
 	cursor: pointer;
 }
 #btnlogin:not(:hover) {
- 	transition: 0.5s;
+ 	transition: 0.3s;
  }
