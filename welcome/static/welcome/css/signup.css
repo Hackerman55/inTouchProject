@@ -24,6 +24,8 @@ a:hover{
 h1{
 	font-family: 'Fira Sans Condensed', sans-serif;
 }
+
+/*регистрацияяяяяя*/
 .signup{
 	width: 350px;
 	height: 500px;
@@ -57,6 +59,10 @@ h1{
 	border-radius: 5px;
 	padding-left: 5px;
 }
+.errorfield{
+	color: red;
+	font-size: 12px;
+}
 .submit{
 	padding: 13px 30px;
 	margin: 5px 0 20px 0;
@@ -75,3 +81,22 @@ h1{
 .submit:not(:hover) {
   transition: 0.3s;
  }
+/*дополнение к регистрации -----   ВХОД*/
+
+.signin{
+	width: 350px;
+	height: 500px;
+	background-color: #fff;
+	margin: 250px auto 0 auto;
+	text-align: center;
+	border: solid #e6e6e6 1px;
+}
+#id_password{
+	background: #fafafa;
+	width: 75%;
+	height: 25px;
+	font-size: 12px;
+	border-radius: 5px;
+	padding-left: 5px;
+}
+

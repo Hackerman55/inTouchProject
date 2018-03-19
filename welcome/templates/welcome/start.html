@@ -12,13 +12,15 @@
         <img src = "{% static "welcome/img/logo.png" %}" class = "logo">
 		<ul>
 			<li> <a href="#">inTouch</a> </li>
-			<li> <a id="btn" href="#">ВОЙТИ</a> </li>
+			<li> <a id="btn" href="{% url 'signin' %}">ВОЙТИ</a> </li>
 		</ul>
     </div>
+    <br><br><br><br><br><br>
+    {{ username }}
     <div class="section">
         <div class = "banner">
 		    <h1>БУДЬ НА СВЯЗИ</h1>
-		    <a id = "btnlogin" href = "signup/">СОЗДАТЬ СТРАНИЦУ</a>
+		    <a id = "btnlogin" href = "{% url 'signup' %}">СОЗДАТЬ СТРАНИЦУ</a>
 	    </div>
     </div>
 
