@@ -9,12 +9,18 @@ class Profile(models.Model):
     description = models.CharField(max_length=100, blank=True)
     vk = models.CharField(max_length=50, blank=True)
     telegram = models.CharField(max_length=50, blank=True)
+    whatsapp = models.CharField(max_length=50, blank=True)
+    viber = models.CharField(max_length=50, blank=True)
 
-    def __str__(self):
-        return self.user
+    #def __str__(self):
+        #return self.user
 
 @receiver(post_save, sender=User)
 def update_user_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
     instance.profile.save()
+
+#@receiver(post_save, sender=User)
+#def save_user_profile(sender, instance, **kwargs):
+ #   instance.profile.save()

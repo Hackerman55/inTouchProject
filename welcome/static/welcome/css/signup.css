@@ -3,7 +3,9 @@ html, body {
 	padding: 0;
 	height: 100%;
 	width: 100%;
-    background: #fafafa; /*#314755;  /* fallback for old browsers #7acce9*/
+    background: #fafafa;
+	overflow:  hidden;
+	/*#314755;  /* fallback for old browsers #7acce9*/
     /*background: -webkit-linear-gradient(to left, #1473da, #7acce9);
     background: linear-gradient(to left, #1473da, #7acce9); */
 }
@@ -42,7 +44,7 @@ h1{
 	font-size: 12px;
 	border-radius: 5px;
 	padding-left: 5px;
-	}
+}
 #id_password1{
 	background: #fafafa;
 	width: 75%;
@@ -81,6 +83,9 @@ h1{
 .submit:not(:hover) {
   transition: 0.3s;
  }
+
+
+
 /*дополнение к регистрации -----   ВХОД*/
 
 .signin{

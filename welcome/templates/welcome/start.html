@@ -12,11 +12,16 @@
         <img src = "{% static "welcome/img/logo.png" %}" class = "logo">
 		<ul>
 			<li> <a href="#">inTouch</a> </li>
-			<li> <a id="btn" href="{% url 'signin' %}">ВОЙТИ</a> </li>
+            {% if user.is_authenticated %}
+                <li> <a id="btn" href="{% url 'edit_profile' %}">МОЯ СТРАНИЦА</a> </li>
+                <li> <a id="btn" href="{% url 'signout' %}">ВЫЙТИ ({{ username }})</a> </li>
+            {% else %}
+                <li> <a id="btn" href="{% url 'signin' %}">ВОЙТИ</a> </li>
+            {% endif %}
+
 		</ul>
     </div>
-    <br><br><br><br><br><br>
-    {{ username }}
+
     <div class="section">
         <div class = "banner">
 		    <h1>БУДЬ НА СВЯЗИ</h1>
@@ -26,3 +31,6 @@
 
 </body>
 </html>
+
+
+
