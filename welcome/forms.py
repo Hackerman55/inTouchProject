@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.models import User
+from .models import Profile
 
 class SignUpForm(UserCreationForm):
     password1 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Пароль'}))
@@ -14,13 +15,40 @@ class SignUpForm(UserCreationForm):
         }
 
 
-class EditProfileForm(UserChangeForm):
+'''class EditProfileForm(UserChangeForm):
 
     class Meta:
-        model = User
-        fields = ('username', 'password',)
+        model = Profile
+        fields = ('username')
         widgets = {
             'username': forms.TextInput(attrs={'placeholder': 'Имя пользователя'}),
+        }'''
+
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('username',)
+        widgets = {
+            'username': forms.TextInput(attrs={'placeholder': 'Имя пользователя'}),
+        }
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('description',)
+        widgets = {
+            'description': forms.TextInput(attrs={'placeholder': 'Описание'}),
+        }
+
+class MessengersForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('vk', 'telegram', 'whatsapp', 'viber',)
+        widgets = {
+            'vk': forms.TextInput(attrs={'placeholder': 'VK'}),
+            'telegram': forms.TextInput(attrs={'placeholder': 'Telegram'}),
+            'whatsapp': forms.TextInput(attrs={'placeholder': 'WhatsApp'}),
+            'viber': forms.TextInput(attrs={'placeholder': 'Viber'}),
         }
 
 '''class EditUserForm(forms.ModelForm):

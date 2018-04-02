@@ -145,7 +145,7 @@ html, body {
 	}
 }
 
-#id_username{
+#id_username, #id_description, #id_vk, #id_telegram, #id_whatsapp, #id_viber{
 	margin-top: 15px;
 	background: #fafafa;
 	width: 75%;
@@ -153,6 +153,17 @@ html, body {
 	font-size: 12px;
 	border-radius: 5px;
 	padding-left: 5px;
+}
+.errorfield{
+	color: red;
+	font-size: 12px;
+}
+
+.par{
+	margin-bottom: 0;
+}
+.par2{
+	margin-top: 0;
 }
 
 .submit{

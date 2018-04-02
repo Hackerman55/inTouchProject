@@ -18,9 +18,18 @@
         <section id="content1">
             <form method="post">
                 {% csrf_token %}
-                {% for field in form %}
-                    <p>ИМЯ</p>
-                    <p>{{ field }}</p>
+                <p class="par">ИМЯ</p>
+                {% for field in user_form %}
+                    <p class="par2">{{ field }}</p>
+                    {% if field.errors %}
+                        <div class="errorfield">
+                            {{field.errors}}
+                        </div>
+                {% endif %}
+                {% endfor %}
+                <p class="par">ОПИСАНИЕ</p>
+                {% for field in profile_form %}
+                    <p class="par2">{{ field }}</p>
                     {% if field.errors %}
                         <div class="errorfield">
                             {{field.errors}}
@@ -31,9 +40,19 @@
             </form>
         </section>
         <section id="content2">
-            <p>
-                22222222222222222222222222222222222222222
-            </p>
+            <form method="post">
+                {% csrf_token %}
+                <p class="par">МЕССЕНДЖЕРЫ </p>
+                {% for field in mssg_form %}
+                    <p class="par2">{{ field }}</p>
+                    {% if field.errors %}
+                        <div class="errorfield">
+                            {{field.errors}}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                <input class="submit" type="submit" value="СОХРАНИТЬ">
+            </form>
         </section>
     </div>
     <div class="card">
