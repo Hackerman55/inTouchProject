@@ -6,6 +6,10 @@
     <title>inTouch |</title>
     <link rel="stylesheet" type="text/css" href={% static "welcome/css/profile.css" %}>
 </head>
+<style type="text/css">
+    input {outline:none}
+    img{ margin-top: 15px}
+</style>
 <body>
     <a href="{% url 'home' %}">inTouch</a>
     <div class="settings">
@@ -44,7 +48,9 @@
                 {% csrf_token %}
                 <p class="par">МЕССЕНДЖЕРЫ </p>
                 {% for field in mssg_form %}
-                    <p class="par2">{{ field }}</p>
+                    <p class="par2">
+                        {{ field }}
+                    </p>
                     {% if field.errors %}
                         <div class="errorfield">
                             {{field.errors}}
