@@ -4,31 +4,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>inTouch |</title>
     <link rel="stylesheet" type="text/css" href={% static "welcome/css/style.css" %}>
-    <title>inTouch</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href={% static "welcome/libs/animate.css" %}>
+    <link rel="icon" type="images/png" href={% static "welcome/img/share.png" %}>
 </head>
 <body>
-	<div class = "navbar">
-        <img src = "{% static "welcome/img/logo.png" %}" class = "logo">
-		<ul>
-			<li> <a href="#">inTouch</a> </li>
-            {% if user.is_authenticated %}
-                <li> <a id="btn" href="{% url 'edit_profile' %}">МОЯ СТРАНИЦА</a> </li>
-                <li> <a id="btn" href="{% url 'signout' %}">ВЫЙТИ ({{ username }})</a> </li>
-            {% else %}
-                <li> <a id="btn" href="{% url 'signin' %}">ВОЙТИ</a> </li>
-            {% endif %}
 
-		</ul>
+    <div class="wrapper">
+        <header>
+            <nav>
+                <div class="menu-icon">
+                     <i class="fa fa-bars fa-2x"></i>
+                </div>
+                <a id="logo" href="{% url 'home' %}">
+                    inTouch
+                </a>
+
+                <div class="menu">
+                    <ul>
+                        <li><a href=".howitwork">Как это работает?</a></li>
+                        <li><a href=".block">Контакты</a></li>
+                        {% if user.is_authenticated %}
+                            <li> <a id="btn" href="{% url 'edit_profile' %}">Моя страница</a> </li>
+                            <li> <a id="btn" href="{% url 'signout' %}">Выйти({{ username }})</a> </li>
+                        {% else %}
+                            <li> <a id="btn" href="{% url 'signin' %}">Войти</a> </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </nav>
+            <img class="phone" src={% static "welcome/img/phone.png" %}>
+            <div class="text">
+                <p class="keep">Keep</p>
+                <p class="keep">
+                    <span class="word ahead"> ahead</span>
+                    <span class="word calm"> calm</span>
+                    <span class="word inTouch"> inTouch</span>
+                </p>
+                <div class="createpage">
+                    <a id="btncreate" href="{% url 'signup' %}">Создать страницу</a>
+                </div>
+            </div>
+
+        </header>
+        <section class="howitwork">
+            <div class="block">
+                <h2>Как это работает?</h2>
+                <ul>
+                    <li><h1>Создайте страницу</h1>
+                        <p>Придумайте название, заполните профиль, готово!</p>
+                    </li>
+                    <li><h1>Поделитесь ссылкой</h1>
+                        <p>Поделитесь ссылкой inTouch.com через социальные сети или установите ее на свой сайт.</p>
+                    </li>
+                    <li><h1>Получайте сообщения</h1>
+                        <p>Клиент нажимает на ссылку и выбирает удобный способ связи.</p>
+                    </li>
+                </ul>
+
+            </div>
+
+        </section>
+
+        <footer>
+            <div class="media">
+                <ul>
+                    <li><p>2018 © Mukhomedishin Rustam | Privacy policy</p></li><br>
+                    <li><a href="https://vk.com/rustam_in"><i class="fa fa-vk fa-2x icon"></i></a>
+                    </li>
+                    <li><a href="https://www.instagram.com/rustam_in"><i class="fa fa-instagram fa-2x icon"></i></a>
+                    </li>
+                    <li><a href="https://t.me/rustam_in"><i class="fa fa-telegram fa-2x icon"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+
+
     </div>
 
-    <div class="section">
-        <div class = "banner">
-		    <h1>БУДЬ НА СВЯЗИ</h1>
-		    <a id = "btnlogin" href = "{% url 'signup' %}">СОЗДАТЬ СТРАНИЦУ</a>
-	    </div>
-    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src={% static "welcome/libs/waypoints.js" %}></script>
+    <script type="text/javascript" src={% static "welcome/libs/animate-css.js" %}></script>
+    <script type="text/javascript" src={% static "welcome/js/script for home.js" %}></script>
+    <script type="text/javascript">
+          // Menu-toggle button + appear
+          $(document).ready(function() {
+            $(".menu-icon").on("click", function() {
+                  $("nav ul").toggleClass('showing');
+            });
+            $(".phone").animated("fadeInDown", "fadeOutUp");
+            $(".text").animated("fadeIn", "fadeOut");
+            $(".block").animated("fadeInUp", "fadeinDown");
+          });
 
+          // Scrolling Effect
+
+          $(window).on("scroll", function() {
+                if($(window).scrollTop()) {
+                      $('nav').addClass('white');
+                      $('#logo').addClass('white');
+                }
+
+                else {
+                      $('nav').removeClass('white');
+                      $('#logo').removeClass('white');
+                }
+          })
+        </script>
 </body>
 </html>
 

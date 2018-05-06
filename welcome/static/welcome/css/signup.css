@@ -33,6 +33,7 @@ h1{
 	height: 500px;
 	background-color: #fff;
 	margin: 250px auto 0 auto;
+	padding-top: 10px;
 	text-align: center;
 	border: solid #e6e6e6 1px;
 }

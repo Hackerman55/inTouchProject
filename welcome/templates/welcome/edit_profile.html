@@ -5,13 +5,17 @@
     <meta charset="UTF-8">
     <title>inTouch |</title>
     <link rel="stylesheet" type="text/css" href={% static "welcome/css/profile.css" %}>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href={% static "welcome/libs/animate.css" %}>
+    <link rel="icon" type="images/png" href={% static "welcome/img/share.png" %}>
 </head>
 <style type="text/css">
     input {outline:none}
     img{ margin-top: 15px}
 </style>
 <body>
-    <a href="{% url 'home' %}">inTouch</a>
+    <a id="logo" href="{% url 'home' %}">inTouch</a>
     <div class="settings">
         <h1>НАСТРОЙКИ</h1>
         <input id="tab1" type="radio" name="head" checked>
@@ -69,6 +73,6 @@
             <li><a href="https://{{ user.profile.vk }}">{{ user.profile.vk }}</a></li>
         </ul>
     </div>
-    <script src="https://mssg.me/widget/rustamx" async></script>
+    <!--<script src="https://mssg.me/widget/rustamx" async></script>-->
 </body>
 </html>

@@ -1,10 +1,10 @@
-#from .models import Profile
+from .models import User, Profile
 from django.contrib.auth import login, authenticate
-from django.shortcuts import render, redirect #get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from welcome.forms import SignUpForm, UserForm, ProfileForm, MessengersForm #EditProfileForm,
 from django.contrib import auth
 #from django.contrib.auth.forms import UserChangeForm
-#from django.http import HttpResponseRedirect
+from django.http import HttpResponseNotFound
 #from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
@@ -32,18 +32,6 @@ def signup(request):
         form = SignUpForm()
     return render(request, 'welcome/signup.html', {'form': form})
 
-'''def edit_profile(request):
-    if request.method == "POST":
-        form = EditProfileForm(request.POST, instance=request.user)
-
-        if form.is_valid():
-            form.save()
-            return redirect('/profile/')
-
-    else:
-        form = EditProfileForm(instance=request.user)
-        context = {'form':form}
-        return render(request,  'welcome/edit_profile.html', context)'''
 @login_required
 @transaction.atomic
 def edit_profile(request):
@@ -70,3 +58,8 @@ def edit_profile(request):
         'profile_form': profile_form,
         'mssg_form': mssg_form,
     })
+
+def view_profile(request, username):
+    user = get_object_or_404(User, username=username)
+    return render(request, 'welcome/base.html', {'user': user})
+
