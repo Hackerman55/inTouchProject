@@ -68,9 +68,16 @@
     <div class="card">
         <h2>{{ user.username }}</h2>
         <ul>
-            <li>{{ user.profile.description }}</li>
-            <li><a href="https://{{ user.profile.telegram }}">{{ user.profile.telegram }}</a></li>
-            <li><a href="https://{{ user.profile.vk }}">{{ user.profile.vk }}</a></li>
+            {% if  user.profile.description != '' %}
+                <li>{{ user.profile.description }}</li>{% endif %}
+            {% if  user.profile.telegram == '' %}
+                <li><a href="https://{{ user.profile.telegram }}">{{ user.profile.telegram }}</a></li>{% endif %}
+            {% if  user.profile.vk != '' %}
+                <li><a href="https://{{ user.profile.vk }}">{{ user.profile.vk }}</a></li>{% endif %}
+            {% if  user.profile.whatsapp != '' %}
+                <li><a href="https://{{ user.profile.whatsapp }}">{{ user.profile.whatsapp }}</a></li>{% endif %}
+            {% if  user.profile.viber != '' %}
+                <li><a href="https://{{ user.profile.viber }}">{{ user.profile.viber }}</a></li>{% endif %}
         </ul>
     </div>
     <!--<script src="https://mssg.me/widget/rustamx" async></script>-->

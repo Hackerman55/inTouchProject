@@ -6,8 +6,6 @@
 
 {% block content %}
     <div class="signup">
-        <a id="btn" href="{% url 'home' %}">inTouch</a>
-        <hr>
         <form  method="post">
             {% csrf_token %}
             {% for field in form %}
