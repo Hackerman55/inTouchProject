@@ -4,10 +4,10 @@ html, body {
 	padding: 0;
 	height: 100%;
 	width: 100%;
-    background: #314755;
-    /*background: linear-gradient(45deg, #EECFBA, #C5DDE8);*/
-	background: linear-gradient(135deg,#00C4FF,#9D1BB2);
-    overflow:  hidden;
+    background: linear-gradient(135deg,#00C4FF,#9D1BB2);
+	overflow:  hidden;
+}
+body {
 	font-family: 'Roboto', sans-serif;
 }
 #logo {
@@ -22,24 +22,34 @@ html, body {
 	letter-spacing: 3px;
 }
 .card{
-    margin: 200px auto 0;
-    width: 350px;
-    height: 300px;
-    background-color: rgba(255,255,255, 0.8);
+    margin: 180px auto 0;
+    width: 300px;
+    height: 350px;
+    background-color: rgba(255,255,255, 0.7);
 	border-radius: 10px;
     text-align: center;
     box-shadow: 0 7px 25px #1c53bd;
 }
+h2{
+	margin: 0;
+	padding-top: 50px;
+}
 .card ul {
 	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.card ul li{
+	padding: 0 15px 15px;
+	display: inline-block;
 }
 .card ul li a{
 	text-decoration: none;
 }
 .settings {
     right: 0;
-	height: 100%;
 	width: 375px;
+	height: 100%;
 	margin: 0;
     background: #1d2226;
     padding: 100px auto 0;
@@ -164,14 +174,26 @@ html, body {
 }
 
 #id_username, #id_description, #id_vk, #id_telegram, #id_whatsapp, #id_viber{
-	margin-top: 15px;
 	background: #fafafa;
-	width: 75%;
 	height: 25px;
-	font-size: 12px;
+	font-size: 14px;
 	border-radius: 5px;
-	padding-left: 5px;
+	padding-left: 3px;
 }
+#id_username, #id_description{
+	width: 300px;
+}
+#id_vk{
+	width: 230px;
+}
+#id_telegram{
+	width: 240px;
+}
+#id_whatsapp,#id_viber{
+	width: 270px;
+}
+
+
 
 .errorfield{
 	color: red;
@@ -183,6 +205,7 @@ html, body {
 }
 .par2{
 	margin-top: 0;
+	vertical-align: middle;
 }
 
 .submit{
@@ -203,6 +226,11 @@ html, body {
 .submit:not(:hover) {
   transition: 0.3s;
  }
+@media(max-width: 1280px) {
+	.settings{
+		right: -380px;
+	}
+}
 
 /*.head > ul{					Vengaboys   We like to Party!
 	padding: 0;

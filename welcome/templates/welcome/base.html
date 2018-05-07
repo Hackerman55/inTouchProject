@@ -21,18 +21,25 @@
             <h2>{{ user.username }}</h2>
             <ul>
                 {% if  user.profile.description != '' %}
-                    <li>{{ user.profile.description }}</li>{% endif %}
-                {% if  user.profile.telegram != '' %}
-                    <li><a href="https://{{ user.profile.telegram }}">{{ user.profile.telegram }}</a></li>{% endif %}
+                    <li><p class="description">{{ user.profile.description }}</p></li>{% endif %}
+                <br>{% if  user.profile.telegram != '' %}
+                    <li><a href="https://t.me/{{ user.profile.telegram }}">
+                        <img src='{% static "welcome/img/telegram-mini.svg" %}' height="64px"></a>
+                    </li>{% endif %}
                 {% if  user.profile.vk != '' %}
-                    <li><a href="https://{{ user.profile.vk }}">{{ user.profile.vk }}</a></li>{% endif %}
+                    <li><a href="https://vk.me/{{ user.profile.vk }}">
+                        <img src='{% static "welcome/img/vk.svg" %}' height="64px"></a>
+                    </li>{% endif %}
                 {% if  user.profile.whatsapp != '' %}
-                    <li><a href="https://{{ user.profile.whatsapp }}">{{ user.profile.whatsapp }}</a></li>{% endif %}
+                    <li><a href="https://api.whatsapp.com/send?phone={{ user.profile.whatsapp }}">
+                        <img src='{% static "welcome/img/whatsapp-mini.svg" %}' height="64px"></a>
+                    </li>{% endif %}
                 {% if  user.profile.viber != '' %}
-                    <li><a href="https://{{ user.profile.viber }}">{{ user.profile.viber }}</a></li>{% endif %}
+                    <li><a href="https://api.whatsapp.com/send?phone={{ user.profile.viber }}">
+                        <img src='{% static "welcome/img/viber-mini.svg" %}' height="64px"></a>
+                    </li>{% endif %}
             </ul>
         </div>
-
 
     {% endblock %}
 

@@ -45,10 +45,10 @@ class MessengersForm(forms.ModelForm):
         model = Profile
         fields = ('vk', 'telegram', 'whatsapp', 'viber',)
         widgets = {
-            'vk': forms.TextInput(attrs={'placeholder': 'VK'}),
-            'telegram': forms.TextInput(attrs={'placeholder': 'Telegram'}),
-            'whatsapp': forms.TextInput(attrs={'placeholder': 'WhatsApp'}),
-            'viber': forms.TextInput(attrs={'placeholder': 'Viber'}),
+            'vk': forms.TextInput(attrs={'placeholder': 'username'}),
+            'telegram': forms.TextInput(attrs={'placeholder': 'username or phone number'}),
+            'whatsapp': forms.TextInput(attrs={'placeholder': 'phone number'}),
+            'viber': forms.TextInput(attrs={'placeholder': 'phone number'}),
         }
 
 '''class EditUserForm(forms.ModelForm):

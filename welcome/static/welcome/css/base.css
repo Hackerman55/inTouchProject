@@ -1,4 +1,6 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Faster+One|Roboto');
+
 html, body {
 	margin: 0;
 	padding: 0;
@@ -22,18 +24,26 @@ html, body {
 	letter-spacing: 3px;
 }
 .card{
-    text-align: center;
-    margin: 200px auto 0;
-    width: 290px;
-    height: 260px;
-    background-color: rgba(255,255,255, 0.8);
+    margin: 180px auto 0;
+    width: 300px;
+    height: 350px;
+    background-color: rgba(255,255,255, 0.7);
 	border-radius: 10px;
+    text-align: center;
     box-shadow: 0 7px 25px #1c53bd;
 }
+h2{
+	margin: 0;
+	padding-top: 50px;
+}
 .card ul {
-    padding: 0;
-    margin: 0 auto;
-    list-style: none;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.card ul li{
+	padding: 0 15px 15px;
+	display: inline-block;
 }
 .card ul li a{
 	text-decoration: none;

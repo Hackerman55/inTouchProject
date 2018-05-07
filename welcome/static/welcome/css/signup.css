@@ -6,9 +6,6 @@ html, body {
 	width: 100%;
     background: linear-gradient(135deg,#00C4FF,#9D1BB2);
 	overflow:  hidden;
-	/*#314755;  /* fallback for old browsers #7acce9*/
-    /*background: -webkit-linear-gradient(to left, #1473da, #7acce9);
-    background: linear-gradient(to left, #1473da, #7acce9); */
 }
 body{
 	font-family: 'Roboto', sans-serif;
