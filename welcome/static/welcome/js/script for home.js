@@ -57,3 +57,7 @@ $('.menu').on('click', function () {
   $('.list').toggleClass('hidden');
 });
 
+$('.scrollto').on('click', function(e){
+  $('html,body').stop().animate({ scrollTop: $('#howitwork').offset().top }, 700);
+  e.preventDefault();
+});

@@ -5,44 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>inTouch |</title>
-    <link rel="stylesheet" type="text/css" href={% static "welcome/css/base.css" %}>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href={% static "welcome/libs/animate.css" %}>
     <link rel="icon" type="images/png" href={% static "welcome/img/share.png" %}>
-
     {% block stylesheet %}{% endblock %}
 
 </head>
 <body>
-    <a id="logo" href="{% url 'home' %}">inTouch</a>
     {% block content %}
-        <div class="card">
-            <h2>{{ user.username }}</h2>
-            <ul>
-                {% if  user.profile.description != '' %}
-                    <li><p class="description">{{ user.profile.description }}</p></li>{% endif %}
-                <br>{% if  user.profile.telegram != '' %}
-                    <li><a href="https://t.me/{{ user.profile.telegram }}">
-                        <img src='{% static "welcome/img/telegram-mini.svg" %}' height="64px"></a>
-                    </li>{% endif %}
-                {% if  user.profile.vk != '' %}
-                    <li><a href="https://vk.me/{{ user.profile.vk }}">
-                        <img src='{% static "welcome/img/vk.svg" %}' height="64px"></a>
-                    </li>{% endif %}
-                {% if  user.profile.whatsapp != '' %}
-                    <li><a href="https://api.whatsapp.com/send?phone={{ user.profile.whatsapp }}">
-                        <img src='{% static "welcome/img/whatsapp-mini.svg" %}' height="64px"></a>
-                    </li>{% endif %}
-                {% if  user.profile.viber != '' %}
-                    <li><a href="https://api.whatsapp.com/send?phone={{ user.profile.viber }}">
-                        <img src='{% static "welcome/img/viber-mini.svg" %}' height="64px"></a>
-                    </li>{% endif %}
-            </ul>
-        </div>
 
     {% endblock %}
-
 </body>
 
 </html>

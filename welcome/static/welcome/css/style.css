@@ -419,6 +419,9 @@ li {
 		max-height: 0;
 		background: #000;
 	}
+	nav.white ul li a{
+      color: #fff;
+	}
 
 	nav.white ul {
 		background: #000;

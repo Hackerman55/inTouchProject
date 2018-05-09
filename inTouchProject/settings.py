@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'welcome',
+    'awesome_avatar',
 ]
 
 MIDDLEWARE = [
@@ -119,6 +120,23 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'welcome/media')
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 LOGOUT_REDIRECT_URL = 'home'
+
 LOGIN_REDIRECT_URL = '/profile/'
+
+AWESOME_AVATAR = {
+    'width': 100,
+    'height': 100,
+
+    'select_area_width': 400,
+    'select_area_height': 300,
+
+    'save_quality': 90,
+    'save_format': 'png',
+}

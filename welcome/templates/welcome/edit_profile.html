@@ -1,32 +1,30 @@
+{% extends "welcome/base.html" %}
 {% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>inTouch |</title>
-    <link rel="stylesheet" type="text/css" href={% static "welcome/css/profile.css" %}>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href={% static "welcome/libs/animate.css" %}>
-    <link rel="icon" type="images/png" href={% static "welcome/img/share.png" %}>
-</head>
-<style type="text/css">
-    input {outline:none}
-    img{ padding-top: 15px}
-</style>
-<body>
+
+{% block stylesheet %}
+        <link rel="stylesheet" type="text/css" href={% static "welcome/css/edit_profile.css" %}>
+        <style type="text/css">
+            input {outline:none}
+        </style>
+{% endblock %}
+
+{% block content %}
+    <input type="checkbox" id="nav-toggle" hidden>
     <a id="logo" href="{% url 'home' %}">inTouch</a>
     <div class="settings">
-        <h1>НАСТРОЙКИ</h1>
+        <label for="nav-toggle" class="nav-toggle" onclick></label>
+        <h1>Настройки</h1>
+        <h3><a href="{% url 'view_profile' user.username %}">inTouch.com/{{ user.username }}</a></h3>
         <input id="tab1" type="radio" name="head" checked>
-        <label for="tab1" id="prof">ПРОФИЛЬ</label>
+        <label class="sett" for="tab1" id="prof">Профиль</label>
 
         <input id="tab2" type="radio" name="head">
-        <label for="tab2">ССЫЛКИ</label>
+        <label class="sett" for="tab2">Ссылки</label>
         <section id="content1">
             <form method="post">
                 {% csrf_token %}
-                <p class="par">ИМЯ</p>
+
+                <p class="par">Имя</p>
                 {% for field in user_form %}
                     <p class="par2">{{ field }}</p>
                     {% if field.errors %}
@@ -50,27 +48,37 @@
         <section id="content2">
             <form method="post">
                 {% csrf_token %}
-                <p class="par">МЕССЕНДЖЕРЫ </p>
+                <p class="par">Мессенджеры</p>
                 {% for field in mssg_form %}
                     {% if field.name == 'vk' %}
                         <p class="par2">
-                            <img src="{% static "welcome/img/vk-mini.svg" %}" height="26px">
+                            <img class="minilogo" src="{% static "welcome/img/vk-mini.svg" %}" height="32px">
                             vk.me/{{ field }}</p>
                     {% endif %}
                     {% if field.name == 'telegram' %}
                         <p class="par2">
-                            <img src="{% static "welcome/img/telegram-mini.svg" %}" height="26px">
+                            <img class="minilogo" src="{% static "welcome/img/telegram-mini.svg" %}" height="32px">
                             t.me/{{ field }}</p>
                     {% endif %}
                     {% if field.name == 'whatsapp' %}
                         <p class="par2">
-                            <img src="{% static "welcome/img/whatsapp-mini.svg" %}" height="26px">
+                            <img class="minilogo" src="{% static "welcome/img/whatsapp-mini.svg" %}" height="32px">
                             +{{ field }}</p>
                     {% endif %}
                     {% if field.name == 'viber' %}
                         <p class="par2">
-                            <img src="{% static "welcome/img/viber-mini.svg" %}" height="26px">
+                            <img class="minilogo" src="{% static "welcome/img/viber-mini.svg" %}" height="32px">
                             +{{ field }}</p>
+                    {% endif %}
+                    {% if field.name == 'skype' %}
+                        <p class="par2">
+                            <img class="minilogo" src="{% static "welcome/img/skype-mini.svg" %}" height="32px">
+                            {{ field }}</p>
+                    {% endif %}
+                    {% if field.name == 'insta' %}
+                        <p class="par2">
+                            <img class="minilogo" src="{% static "welcome/img/instagram.svg" %}" height="28px">
+                            {{ field }}</p>
                     {% endif %}
 
 
@@ -86,6 +94,9 @@
         </section>
     </div>
     <div class="card">
+        {% if  user.profile.avatar.url != '' %}
+            <img class="avatar" src="{{ user.profile.avatar.url }}" height="92px" width="auto">
+        {% endif %}
         <h2>{{ user.username }}</h2>
         <ul>
             {% if  user.profile.description != '' %}
@@ -103,11 +114,18 @@
                     <img src='{% static "welcome/img/whatsapp-mini.svg" %}' height="64px"></a>
                 </li>{% endif %}
             {% if  user.profile.viber != '' %}
-                <li><a href="https://api.whatsapp.com/send?phone={{ user.profile.viber }}">
+                <li><a href="https://viber://add?number={{ user.profile.viber }}">
                     <img src='{% static "welcome/img/viber-mini.svg" %}' height="64px"></a>
+                </li>{% endif %}
+            {% if  user.profile.skype != '' %}
+                <li><a href="https://skype:{{ user.profile.skype }}">
+                    <img src='{% static "welcome/img/skype-mini.svg" %}' height="64px"></a>
+                </li>{% endif %}
+            {% if  user.profile.insta != '' %}
+                <li><a href="https://instagram.com/{{ user.profile.insta }}">
+                    <img src='{% static "welcome/img/instagram.svg" %}' height="58px"></a>
                 </li>{% endif %}
         </ul>
     </div>
-    <!--<script src="https://mssg.me/widget/rustamx" async></script>-->
-</body>
-</html>
+
+{% endblock %}

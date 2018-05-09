@@ -28,6 +28,15 @@ h1{
 }
 
 /*регистрацияяяяяя*/
+#id_username, #id_password1, #id_password2, #id_password{
+	border: none;
+	background: #eff0f1;
+	width: 75%;
+	height: 25px;
+	font-size: 12px;
+	border-radius: 5px;
+	padding-left: 5px;
+}
 .signup{
 	width: 300px;
 	height: 340px;
@@ -36,33 +45,10 @@ h1{
 	padding-top: 5px;
 	text-align: center;
 	border-radius: 10px;
+
 	box-shadow: 0 7px 35px #1c53bd;
 }
-#id_username{
 
-	background: #fafafa;
-	width: 75%;
-	height: 25px;
-	font-size: 12px;
-	border-radius: 5px;
-	padding-left: 5px;
-}
-#id_password1{
-	background: #fafafa;
-	width: 75%;
-	height: 25px;
-	font-size: 12px;
-	border-radius: 5px;
-	padding-left: 5px;
-}
-#id_password2{
-	background: #fafafa;
-	width: 75%;
-	height: 25px;
-	font-size: 12px;
-	border-radius: 5px;
-	padding-left: 5px;
-}
 .errorfield{
 	color: red;
 	font-size: 12px;
@@ -101,12 +87,6 @@ h1{
 	padding-top: 20px;
 	box-shadow: 0 7px 35px #1c53bd;
 }
-#id_password{
-	background: #fafafa;
-	width: 75%;
-	height: 25px;
-	font-size: 12px;
-	border-radius: 5px;
-	padding-left: 5px;
+dding-left: 5px;
 }
 

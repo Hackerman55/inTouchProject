@@ -1,0 +1,44 @@
+{% extends "welcome/base.html" %}
+{% load staticfiles %}
+
+{% block stylesheet %}
+        <link rel="stylesheet" type="text/css" href={% static "welcome/css/profile.css" %}>
+{% endblock %}
+
+{% block content %}
+    <a id="logo" href="{% url 'home' %}">inTouch</a>
+        <div class="card">
+            {% if  user.profile.avatar.url != '' %}
+                <img class="avatar" src="{{ user.profile.avatar.url }}" height="92px" width="auto">
+            {% endif %}
+            <h2>{{ user.username }}</h2>
+            <ul>
+                {% if  user.profile.description != '' %}
+                    <li><p class="description">{{ user.profile.description }}</p></li>{% endif %}
+                <br>{% if  user.profile.telegram != '' %}
+                    <li><a href="https://t.me/{{ user.profile.telegram }}">
+                        <img src='{% static "welcome/img/telegram-mini.svg" %}' height="64px"></a>
+                    </li>{% endif %}
+                {% if  user.profile.vk != '' %}
+                    <li><a href="https://vk.me/{{ user.profile.vk }}">
+                        <img src='{% static "welcome/img/vk.svg" %}' height="64px"></a>
+                    </li>{% endif %}
+                {% if  user.profile.whatsapp != '' %}
+                    <li><a href="https://api.whatsapp.com/send?phone={{ user.profile.whatsapp }}">
+                        <img src='{% static "welcome/img/whatsapp-mini.svg" %}' height="64px"></a>
+                    </li>{% endif %}
+                {% if  user.profile.viber != '' %}
+                    <li><a href="https://viber://add?number={{ user.profile.viber }}">
+                        <img src='{% static "welcome/img/viber-mini.svg" %}' height="64px"></a>
+                    </li>{% endif %}
+                {% if  user.profile.skype != '' %}
+                    <li><a href="https://skype:{{ user.profile.skype }}">
+                        <img src='{% static "welcome/img/skype-mini.svg" %}' height="64px"></a>
+                    </li>{% endif %}
+                {% if  user.profile.insta != '' %}
+                    <li><a href="https://instagram.com/{{ user.profile.insta }}">
+                        <img src='{% static "welcome/img/instagram.svg" %}' height="58px"></a>
+                    </li>{% endif %}
+            </ul>
+        </div>
+{% endblock %}
