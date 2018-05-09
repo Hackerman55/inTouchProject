@@ -1,0 +1,26 @@
+{% extends "welcome/base.html" %}
+{% load staticfiles %}
+{% block stylesheet %}
+    <link rel="stylesheet" type="text/css" href={% static "welcome/css/signup.css" %}>
+{% endblock %}
+
+{% block content %}
+    <div class="signup">
+        <form  method="post">
+            {% csrf_token %}
+            {% for field in form %}
+                <p>{{ field }}</p>
+                {% if field.errors %}
+                    <div class="errorfield">
+                    {{field.errors}}
+                    </div>
+                {% endif %}
+            {% endfor %}
+            <br>
+            <input class="submit" type="submit" value="РЕГИСТРАЦИЯ">
+            <p class="par">Есть аккаунт? <a href="{% url 'signin' %}">Войти</a></p>
+            <p class="par">Регистрируясь, вы соглашаетесь с нашими Условиями и Политикой конфиденциальности.</p>
+        </form>
+    </div>
+
+{% endblock %}

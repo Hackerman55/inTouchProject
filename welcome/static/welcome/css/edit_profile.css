@@ -1,0 +1,403 @@
+@charset "UTF-8";
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+    background: linear-gradient(135deg,#00C4FF,#9D1BB2);
+	overflow:  hidden;
+}
+body {
+	font-family: 'Roboto', sans-serif;
+}
+#logo {
+	text-decoration: none;
+	line-height: 60px;
+	position: fixed;
+	float: left;
+	margin: 16px 46px;
+	color: #fff;
+	font-weight: bold;
+	font-size: 50px;
+	letter-spacing: 3px;
+}
+.card{
+    margin: 180px auto 0;
+    width: 300px;
+    height: 350px;
+    background-color: rgba(255,255,255, 0.7);
+	border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 7px 25px #1c53bd;
+	-webkit-transition: -webkit-transform .3s;
+    -moz-transition: -moz-transform .3s;
+    transition: transform .3s;
+}
+.avatar{
+	border-radius: 100px;
+	top: -50%;
+}
+.description{
+	margin: 0;
+	color: #2b2b2b;
+	font-size: small;
+}
+h2{
+	margin: 0;
+	padding-top: 15px;
+}
+h3 a{
+	text-decoration: none;
+	color: #fff;
+}
+h3 a:hover{
+	color: #eee;
+}
+
+.card ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.card ul li{
+	padding: 0 15px 15px;
+	display: inline-block;
+}
+.card ul li a{
+	text-decoration: none;
+}
+.settings {
+    right: -375px;
+	width: 375px;
+	height: 100%;
+	margin: 0;
+    background: #1d2226;
+    padding: 100px auto 0;
+	z-index: 500;
+	position: fixed;
+	box-shadow: 0 0 15px #2b2b2b;
+	-webkit-transition: right 0.3s;
+    -moz-transition: right 0.3s;
+    transition: right 0.3s;
+}
+.settings > h1{
+    margin: 0 auto;
+    padding: 25px;
+    font-size: 24px;
+    text-align: center;
+    color: #eee;
+    letter-spacing: 2px;
+
+}
+.settings > h3{
+    margin: 0 auto;
+    padding:  0 0 15px;
+    font-size: 18px;
+    text-align: center;
+    color: #eee;
+
+}
+.settings>section {
+	display: none;
+	padding: 15px;
+	background: #fff;
+	border: 1px solid #ddd;
+}
+#content1, #content2{
+	margin: 0 0 5px;
+	line-height: 1.5;
+	color: #000;
+	/* прикрутим анимацию */
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation-name: fadeIn;
+	animation-name: fadeIn;
+}
+@-webkit-keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+/* Прячем чекбоксы */
+.settings>input {
+	display: none;
+	position: absolute;
+}
+/* Стили переключателей вкладок (табов) border-bottom: solid #eee 3px;*/
+.sett {
+	display: inline-block;
+	margin: 0;
+	padding: 15px 36px;
+	text-align: center;
+	color: #cacaca;
+	background: #1d2226;
+	border-radius: 3px 3px 0 0;
+}
+#prof{
+	margin-left: 15px;
+}
+
+
+.sett:before {
+	font-weight: normal;
+	margin-right: 10px;
+}
+.sett[for*="1"]:before {
+	content: "\1F468";
+}
+.sett[for*="2"]:before {
+	content: "\1F517";
+}
+
+/* Изменения стиля переключателей вкладок при наведении */
+
+.sett:hover {
+	cursor: pointer;
+}
+/* Стили для активной вкладки */
+.settings>input:checked+label {
+	color: #fff;
+	border-bottom: 3px solid #51b3f7;
+	font-weight: 600;
+}
+/* Активация секций с помощью псевдокласса :checked */
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2{
+    display: block;
+}
+
+
+/* Убираем текст с переключателей
+* и оставляем иконки на малых экранах
+*/
+
+@media screen and (max-width: 1280px) {
+	.sett{
+		font-size: 0;
+		width: 140px;
+	}
+	.sett:before {
+		margin: 0;
+		font-size: 18px;
+		width: 140px;
+	}
+}
+/* Изменяем внутренние отступы
+*  переключателей для малых экранов
+*/
+@media screen and (max-width: 400px) {
+	.sett{
+		padding: 15px;
+	}
+}
+
+#id_username, #id_description, #id_vk, #id_telegram, #id_whatsapp, #id_viber, #id_skype, #id_insta{
+	background: #f5f5f5;
+	height: 25px;
+	font-size: 14px;
+	border-radius: 5px;
+	padding-left: 3px;
+	border: none;
+
+}
+#id_username, #id_description{
+	width: 280px;
+	padding-left: 10px;
+}
+#id_vk{
+	width: 230px;
+}
+#id_telegram{
+	width: 220px;
+}
+#id_whatsapp, #id_viber, #id_skype, #id_insta{
+	width: 270px;
+}
+
+
+
+.errorfield{
+	color: red;
+	font-size: 12px;
+}
+
+.par{
+
+}
+.minilogo{
+	padding-right: 7px;
+	float: left;
+}
+.par2{
+	height: 32px;
+	background: #f5f5f5;
+	border-radius: 32px;
+	padding-left: 4px;
+	margin-bottom: 20px;
+	padding-top: 2px;
+	font-size: 15px;
+	color: #cacaca;
+}
+
+.submit{
+	padding: 13px 30px;
+	margin-right: 0;
+	font-size: 12px;
+	color: #000;
+	background: none;
+	border: 1px solid #273b7a;
+	letter-spacing: 2px;
+}
+.submit:hover{
+	background-color: #3897f0;
+	border: 1px solid #fff;
+	color: #fff;
+	transition: 0.15s;
+}
+.submit:not(:hover) {
+  transition: 0.3s;
+ }
+
+
+
+
+.nav-toggle {
+    position: absolute;
+    right: 370px;
+    top: 1em;
+    padding: 0.5em 1em;
+    background: inherit;
+    color: #dadada;
+    cursor: pointer;
+    font-size: 1.2em;
+    line-height: 1;
+    z-index: 2001;
+    -webkit-transition: color .25s ease-in-out;
+    -moz-transition: color .25s ease-in-out;
+    transition: color .25s ease-in-out;
+}
+
+.nav-toggle:after {
+    content: 'Настройки'; /*2699*/
+    text-decoration: none;
+}
+
+.nav-toggle:hover {
+    color: #fff;
+}
+
+
+[id='nav-toggle'] {
+    position: absolute;
+    display: none;
+}
+
+[id='nav-toggle']:checked ~ .settings > .nav-toggle {
+    left: auto;
+    right: 2px;
+	top: 1em;
+}
+
+[id='nav-toggle']:checked ~ .settings {
+    right: 0;
+    box-shadow:-4px 0 20px 0 rgba(0,0,0, 0.5);
+    -moz-box-shadow:-4px 0 20px 0 rgba(0,0,0, 0.5);
+    -webkit-box-shadow:-4px 0 20px 0 rgba(0,0,0, 0.5);
+    overflow-y: auto;
+}
+
+[id='nav-toggle']:checked ~ .card{
+    -webkit-transform: translateX(-320px);
+    -moz-transform: translateX(-320px);
+    transform: translateX(-320px);
+}
+
+
+[id='nav-toggle']:checked ~ .settings > .nav-toggle:after {
+    content: '\2715';
+}
+
+body {
+    -webkit-animation: bugfix infinite 1s;
+}
+
+@-webkit-keyframes bugfix {
+    to {
+      padding: 0;
+    }
+}
+
+/**
+ * позаботьтимся о средних и маленьких экранах
+ * мобильных устройств
+ */
+
+@media screen and (min-width: 320px) {
+    html,
+    body {
+      margin: 0;
+      overflow-x: hidden;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    html,
+    body {
+      margin: 0;
+      overflow-x: hidden;
+    }
+    .settings {
+      width: 100%;
+      box-shadow: none
+    }
+}
+
+
+
+/*адаптив*/
+@media(max-width: 1280px) {
+	.sett{
+		width: 78px;
+	}
+	.settings {
+		right: -320px;
+		width: 320px;
+	}
+	.nav-toggle:after {
+    	content: '\2699';
+    }
+
+	.par2{
+		font-size: 15px;
+	}
+	#id_username, #id_description{
+		width: 250px;
+	}
+	#id_vk{
+		width: 150px;
+	}
+	#id_telegram{
+		width: 160px;
+	}
+	#id_whatsapp, #id_viber, #id_skype, #id_insta{
+		width: 210px;
+	}
+	.nav-toggle {
+		right: 320px;
+	}
+}
+
+

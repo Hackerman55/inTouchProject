@@ -1,0 +1,113 @@
+{% extends "welcome/base.html" %}
+{% load staticfiles %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" type="text/css" href={% static "welcome/css/style.css" %}>
+{% endblock %}
+
+{% block content %}
+    <div class="wrapper">
+        <header>
+            <nav>
+                <div class="menu-icon">
+                     <i class="fa fa-bars fa-2x"></i>
+                </div>
+                <a id="logo" href="{% url 'home' %}">
+                    inTouch
+                </a>
+
+                <div class="menu">
+                    <ul>
+                        <li><a class="scrollto" href="{% url 'home' %}#howitwork">Как это работает?</a></li>
+                        <li><a class="scrollto" href="{% url 'home' %}#media">Контакты</a></li>
+                        {% if user.is_authenticated %}
+                            <li> <a id="btn" href="{% url 'edit_profile' %}">Моя страница</a> </li>
+                            <li> <a id="btn" href="{% url 'signout' %}">Выйти({{ username }})</a> </li>
+                        {% else %}
+                            <li> <a id="btn" href="{% url 'signin' %}">Войти</a> </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </nav>
+            <img class="phone" src={% static "welcome/img/phone.png" %}>
+            <div class="text">
+                <p class="keep">Keep</p>
+                <p class="keep">
+                    <span class="word ahead"> ahead</span>
+                    <span class="word calm"> calm</span>
+                    <span class="word inTouch"> inTouch</span>
+                </p>
+                <div class="createpage">
+                    <a id="btncreate" href="{% url 'signup' %}">Создать страницу</a>
+                </div>
+            </div>
+
+        </header>
+        <section class="howitwork" id="howitwork">
+            <div class="block">
+                <h2>Как это работает?</h2>
+                <ul>
+                    <li><h1>Создайте страницу</h1>
+                        <p>Придумайте название, заполните профиль, готово!</p>
+                    </li>
+                    <li><h1>Поделитесь ссылкой</h1>
+                        <p>Поделитесь ссылкой inTouch.com через социальные сети или установите ее на свой сайт.</p>
+                    </li>
+                    <li><h1>Получайте сообщения</h1>
+                        <p>Клиент нажимает на ссылку и выбирает удобный способ связи.</p>
+                    </li>
+                </ul>
+
+            </div>
+
+        </section>
+
+        <footer>
+            <div class="media" id="media">
+                <ul>
+                    <li><p>2018 © Mukhomedishin Rustam | Privacy policy</p></li><br>
+                    <li><a href="https://vk.com/rustam_in"><i class="fa fa-vk fa-2x icon"></i></a>
+                    </li>
+                    <li><a href="https://www.instagram.com/rustam_in"><i class="fa fa-instagram fa-2x icon"></i></a>
+                    </li>
+                    <li><a href="https://t.me/rustam_in"><i class="fa fa-telegram fa-2x icon"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+    <script type="text/javascript" src={% static "welcome/libs/waypoints.js" %}></script>
+    <script type="text/javascript" src={% static "welcome/libs/animate-css.js" %}></script>
+    <script type="text/javascript" src={% static "welcome/js/script for home.js" %}></script>
+    <script type="text/javascript">
+          // Menu-toggle button + appear
+          $(document).ready(function() {
+            $(".menu-icon").on("click", function() {
+                  $("nav ul").toggleClass('showing');
+            });
+            $(".phone").animated("fadeInDown", "fadeOutUp");
+            $(".text").animated("fadeIn", "fadeOut");
+            $(".block").animated("fadeInUp", "fadeinDown");
+          });
+
+          // Scrolling Effect
+
+          $(window).on("scroll", function() {
+                if($(window).scrollTop()) {
+                      $('nav').addClass('white');
+                      $('#logo').addClass('white');
+                }
+
+                else {
+                      $('nav').removeClass('white');
+                      $('#logo').removeClass('white');
+                }
+          })
+        </script>
+{% endblock %}
+
+

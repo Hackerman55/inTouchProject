@@ -1,0 +1,21 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inTouch |</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href={% static "welcome/libs/animate.css" %}>
+    <link rel="icon" type="images/png" href={% static "welcome/img/share.png" %}>
+    {% block stylesheet %}{% endblock %}
+
+</head>
+<body>
+    {% block content %}
+
+    {% endblock %}
+</body>
+
+</html>

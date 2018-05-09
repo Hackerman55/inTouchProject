@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css?family=Faster+One|Roboto');
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+    background: linear-gradient(135deg,#00C4FF,#9D1BB2);
+	overflow:  hidden;
+}
+body{
+	font-family: 'Roboto', sans-serif;
+}
+a{
+	color:#1473da;
+}
+a:hover{
+	text-decoration: none;
+}
+.par{
+	margin: 0 auto;
+	width: 250px;
+	font-size: 12px;
+	color: #999999;
+}
+
+h1{
+	font-family: 'Fira Sans Condensed', sans-serif;
+}
+
+/*регистрацияяяяяя*/
+#id_username, #id_password1, #id_password2, #id_password{
+	border: none;
+	background: #eff0f1;
+	width: 75%;
+	height: 25px;
+	font-size: 12px;
+	border-radius: 5px;
+	padding-left: 5px;
+}
+.signup{
+	width: 300px;
+	height: 340px;
+	background-color: #fff;
+	margin: 210px auto;
+	padding-top: 5px;
+	text-align: center;
+	border-radius: 10px;
+
+	box-shadow: 0 7px 35px #1c53bd;
+}
+
+.errorfield{
+	color: red;
+	font-size: 12px;
+}
+
+.submit{
+	padding: 13px 30px;
+	margin: 5px 0 20px 0;
+	font-size: 12px;
+	color: #000;
+	background: none;
+	border: 1px solid #273b7a;
+	letter-spacing: 2px;
+}
+.submit:hover{
+	background-color: #3897f0;
+	border: 1px solid #fff;
+	color: #fff;
+	transition: 0.15s;
+}
+.submit:not(:hover) {
+  transition: 0.3s;
+ }
+
+
+
+/*дополнение к регистрации -----   ВХОД*/
+
+.signin{
+	width: 300px;
+	height: 320px;
+	background-color: #fff;
+	margin: 210px auto;
+	text-align: center;
+	border-radius: 10px;
+	padding-top: 20px;
+	box-shadow: 0 7px 35px #1c53bd;
+}
+dding-left: 5px;
+}
+

@@ -1,0 +1,131 @@
+{% extends "welcome/base.html" %}
+{% load staticfiles %}
+
+{% block stylesheet %}
+        <link rel="stylesheet" type="text/css" href={% static "welcome/css/edit_profile.css" %}>
+        <style type="text/css">
+            input {outline:none}
+        </style>
+{% endblock %}
+
+{% block content %}
+    <input type="checkbox" id="nav-toggle" hidden>
+    <a id="logo" href="{% url 'home' %}">inTouch</a>
+    <div class="settings">
+        <label for="nav-toggle" class="nav-toggle" onclick></label>
+        <h1>Настройки</h1>
+        <h3><a href="{% url 'view_profile' user.username %}">inTouch.com/{{ user.username }}</a></h3>
+        <input id="tab1" type="radio" name="head" checked>
+        <label class="sett" for="tab1" id="prof">Профиль</label>
+
+        <input id="tab2" type="radio" name="head">
+        <label class="sett" for="tab2">Ссылки</label>
+        <section id="content1">
+            <form method="post">
+                {% csrf_token %}
+
+                <p class="par">Имя</p>
+                {% for field in user_form %}
+                    <p class="par2">{{ field }}</p>
+                    {% if field.errors %}
+                        <div class="errorfield">
+                            {{field.errors}}
+                        </div>
+                {% endif %}
+                {% endfor %}
+                <p class="par">Описание</p>
+                {% for field in profile_form %}
+                    <p class="par2">{{ field }}</p>
+                    {% if field.errors %}
+                        <div class="errorfield">
+                            {{field.errors}}
+                        </div>
+                {% endif %}
+                {% endfor %}
+                <input class="submit" type="submit" value="СОХРАНИТЬ">
+            </form>
+        </section>
+        <section id="content2">
+            <form method="post">
+                {% csrf_token %}
+                <p class="par">Мессенджеры</p>
+                {% for field in mssg_form %}
+                    {% if field.name == 'vk' %}
+                        <p class="par2">
+                            <img class="minilogo" src="{% static "welcome/img/vk-mini.svg" %}" height="32px">
+                            vk.me/{{ field }}</p>
+                    {% endif %}
+                    {% if field.name == 'telegram' %}
+                        <p class="par2">
+                            <img class="minilogo" src="{% static "welcome/img/telegram-mini.svg" %}" height="32px">
+                            t.me/{{ field }}</p>
+                    {% endif %}
+                    {% if field.name == 'whatsapp' %}
+                        <p class="par2">
+                            <img class="minilogo" src="{% static "welcome/img/whatsapp-mini.svg" %}" height="32px">
+                            +{{ field }}</p>
+                    {% endif %}
+                    {% if field.name == 'viber' %}
+                        <p class="par2">
+                            <img class="minilogo" src="{% static "welcome/img/viber-mini.svg" %}" height="32px">
+                            +{{ field }}</p>
+                    {% endif %}
+                    {% if field.name == 'skype' %}
+                        <p class="par2">
+                            <img class="minilogo" src="{% static "welcome/img/skype-mini.svg" %}" height="32px">
+                            {{ field }}</p>
+                    {% endif %}
+                    {% if field.name == 'insta' %}
+                        <p class="par2">
+                            <img class="minilogo" src="{% static "welcome/img/instagram.svg" %}" height="28px">
+                            {{ field }}</p>
+                    {% endif %}
+
+
+
+                    {% if field.errors %}
+                        <div class="errorfield">
+                            {{field.errors}}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                <input class="submit" type="submit" value="СОХРАНИТЬ">
+            </form>
+        </section>
+    </div>
+    <div class="card">
+        {% if  user.profile.avatar.url != '' %}
+            <img class="avatar" src="{{ user.profile.avatar.url }}" height="92px" width="auto">
+        {% endif %}
+        <h2>{{ user.username }}</h2>
+        <ul>
+            {% if  user.profile.description != '' %}
+                <li><p class="description">{{ user.profile.description }}</p></li>{% endif %}
+            <br>{% if  user.profile.telegram != '' %}
+                <li><a href="https://t.me/{{ user.profile.telegram }}">
+                    <img src='{% static "welcome/img/telegram-mini.svg" %}' height="64px"></a>
+                </li>{% endif %}
+            {% if  user.profile.vk != '' %}
+                <li><a href="https://vk.me/{{ user.profile.vk }}">
+                    <img src='{% static "welcome/img/vk.svg" %}' height="64px"></a>
+                </li>{% endif %}
+            {% if  user.profile.whatsapp != '' %}
+                <li><a href="https://api.whatsapp.com/send?phone={{ user.profile.whatsapp }}">
+                    <img src='{% static "welcome/img/whatsapp-mini.svg" %}' height="64px"></a>
+                </li>{% endif %}
+            {% if  user.profile.viber != '' %}
+                <li><a href="https://viber://add?number={{ user.profile.viber }}">
+                    <img src='{% static "welcome/img/viber-mini.svg" %}' height="64px"></a>
+                </li>{% endif %}
+            {% if  user.profile.skype != '' %}
+                <li><a href="https://skype:{{ user.profile.skype }}">
+                    <img src='{% static "welcome/img/skype-mini.svg" %}' height="64px"></a>
+                </li>{% endif %}
+            {% if  user.profile.insta != '' %}
+                <li><a href="https://instagram.com/{{ user.profile.insta }}">
+                    <img src='{% static "welcome/img/instagram.svg" %}' height="58px"></a>
+                </li>{% endif %}
+        </ul>
+    </div>
+
+{% endblock %}
