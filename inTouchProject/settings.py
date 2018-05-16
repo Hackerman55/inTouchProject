@@ -20,9 +20,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+<<<<<<< HEAD
 #SECRET_KEY = '(vbm4x+wu9p85w6h%&fc!t6fh-d6-ad61)zj#_!^b)xf4+d4l5'
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY',
                             '(vbm4x+wu9p85w6h%&fc!t6fh-d6-ad61)zj#_!^b)xf4+d4l5')
+=======
+SECRET_KEY = '(vbm4x+wu9p85w6h%&fc!t6fh-d6-ad61)zj#_!^b)xf4+d4l5'
+>>>>>>> b609d75f2eeb607948a1ca4f768e20c6a4034f73
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -40,6 +44,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'welcome',
+<<<<<<< HEAD
+=======
+    'awesome_avatar',
+>>>>>>> b609d75f2eeb607948a1ca4f768e20c6a4034f73
 ]
 
 MIDDLEWARE = [
@@ -131,7 +139,11 @@ LOGOUT_REDIRECT_URL = 'home'
 
 LOGIN_REDIRECT_URL = '/profile/'
 
+<<<<<<< HEAD
 '''AWESOME_AVATAR = {
+=======
+AWESOME_AVATAR = {
+>>>>>>> b609d75f2eeb607948a1ca4f768e20c6a4034f73
     'width': 100,
     'height': 100,
 
@@ -141,7 +153,11 @@ LOGIN_REDIRECT_URL = '/profile/'
     'save_quality': 90,
     'save_format': 'png',
 }
+<<<<<<< HEAD
 '''
+=======
+
+>>>>>>> b609d75f2eeb607948a1ca4f768e20c6a4034f73
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
@@ -153,7 +169,11 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
+<<<<<<< HEAD
 #ALLOWED_HOSTS = ['ivanov-blog.herokuapp.com']
+=======
+ALLOWED_HOSTS = ['iamintouch.herokuapp.com']
+>>>>>>> b609d75f2eeb607948a1ca4f768e20c6a4034f73
 
 
 

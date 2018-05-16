@@ -2,7 +2,11 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.models import User
 from .models import Profile
+<<<<<<< HEAD
 #from awesome_avatar import forms as avatar_forms
+=======
+from awesome_avatar import forms as avatar_forms
+>>>>>>> b609d75f2eeb607948a1ca4f768e20c6a4034f73
 
 class SignUpForm(UserCreationForm):
     password1 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Пароль'}))
@@ -44,9 +48,15 @@ class AvatarChangeForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ('avatar',)
+<<<<<<< HEAD
 '''
 class UploadAndCropImageForm(forms.Form):
     image = avatar_forms.AvatarField()'''
+=======
+
+class UploadAndCropImageForm(forms.Form):
+    image = avatar_forms.AvatarField()
+>>>>>>> b609d75f2eeb607948a1ca4f768e20c6a4034f73
 
 
 
