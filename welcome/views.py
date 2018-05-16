@@ -1,18 +1,13 @@
 from .models import User, Profile
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect, get_object_or_404
-from welcome.forms import SignUpForm, UserForm, ProfileForm, MessengersForm, AvatarChangeForm #EditProfileForm,
+from welcome.forms import SignUpForm, UserForm, ProfileForm, MessengersForm
 from django.contrib import auth
 #from django.contrib.auth.forms import UserChangeForm
 from django.http import HttpResponseNotFound
 #from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
-<<<<<<< HEAD
-#from awesome_avatar import forms as avatar_forms
-=======
-from awesome_avatar import forms as avatar_forms
->>>>>>> b609d75f2eeb607948a1ca4f768e20c6a4034f73
 
 
 # Create your views here.
@@ -43,15 +38,11 @@ def edit_profile(request):
     if request.method == 'POST':
         user_form = UserForm(request.POST, instance=request.user)
         profile_form = ProfileForm(request.POST, instance=request.user.profile)
-        #avatar_form = AvatarChangeForm(request.POST, request.FILES, instance=request.user.profile)
         mssg_form = MessengersForm(request.POST, instance=request.user.profile)
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
             return redirect('/profile/')
-        #if avatar_form.is_valid():
-            #avatar_form.save()
-            #return redirect('/profile/')
         elif mssg_form.is_valid():
             mssg_form.save()
             #messages.success(request, _('Your profile was successfully updated!'))
@@ -66,7 +57,7 @@ def edit_profile(request):
     return render(request, 'welcome/edit_profile.html', {
         'user_form': user_form,
         'profile_form': profile_form,
-        'mssg_form': mssg_form,  #'avatar_form': avatar_form,
+        'mssg_form': mssg_form,
     })
 
 
