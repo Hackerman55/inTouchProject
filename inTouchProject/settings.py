@@ -131,7 +131,7 @@ LOGOUT_REDIRECT_URL = 'home'
 
 LOGIN_REDIRECT_URL = '/profile/'
 
-AWESOME_AVATAR = {
+'''AWESOME_AVATAR = {
     'width': 100,
     'height': 100,
 
@@ -141,7 +141,7 @@ AWESOME_AVATAR = {
     'save_quality': 90,
     'save_format': 'png',
 }
-
+'''
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
