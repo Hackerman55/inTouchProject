@@ -20,7 +20,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '(vbm4x+wu9p85w6h%&fc!t6fh-d6-ad61)zj#_!^b)xf4+d4l5'
+#SECRET_KEY = '(vbm4x+wu9p85w6h%&fc!t6fh-d6-ad61)zj#_!^b)xf4+d4l5'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY',
+                            '(vbm4x+wu9p85w6h%&fc!t6fh-d6-ad61)zj#_!^b)xf4+d4l5')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'welcome',
-    'awesome_avatar',
 ]
 
 MIDDLEWARE = [
@@ -124,7 +125,7 @@ USE_TZ = True
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'welcome/media')
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 LOGOUT_REDIRECT_URL = 'home'
 
@@ -149,8 +150,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
         os.path.join(BASE_DIR, "static"),
     ]
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
+#ALLOWED_HOSTS = ['ivanov-blog.herokuapp.com']
 
 
 

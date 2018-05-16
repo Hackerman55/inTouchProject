@@ -8,7 +8,7 @@ from django.http import HttpResponseNotFound
 #from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
-from awesome_avatar import forms as avatar_forms
+#from awesome_avatar import forms as avatar_forms
 
 
 # Create your views here.
