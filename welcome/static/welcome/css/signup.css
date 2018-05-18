@@ -23,8 +23,22 @@ a:hover{
 	color: #999999;
 }
 
-h1{
-	font-family: 'Fira Sans Condensed', sans-serif;
+.namefield{
+	margin: 30px 0 5px 30px;
+	padding: 0;
+	text-align: left;
+}
+
+#logo {
+	text-decoration: none;
+	line-height: 60px;
+	position: fixed;
+	float: left;
+	margin: 16px 46px;
+	color: #fff;
+	font-weight: bold;
+	font-size: 50px;
+	letter-spacing: 3px;
 }
 
 /*регистрацияяяяяя*/
@@ -56,7 +70,7 @@ h1{
 
 .submit{
 	padding: 13px 30px;
-	margin: 5px 0 20px 0;
+	margin: 20px 0 20px 0;
 	font-size: 12px;
 	color: #000;
 	background: none;
@@ -87,6 +101,5 @@ h1{
 	padding-top: 20px;
 	box-shadow: 0 7px 35px #1c53bd;
 }
-dding-left: 5px;
-}
+
 

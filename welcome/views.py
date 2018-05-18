@@ -1,11 +1,9 @@
-from .models import User, Profile
+from .models import User
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect, get_object_or_404
 from welcome.forms import SignUpForm, UserForm, ProfileForm, MessengersForm
 from django.contrib import auth
-#from django.contrib.auth.forms import UserChangeForm
-from django.http import HttpResponseNotFound
-#from django.core.urlresolvers import reverse
+
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
 
@@ -53,7 +51,6 @@ def edit_profile(request):
         user_form = UserForm(instance=request.user)
         profile_form = ProfileForm(instance=request.user.profile)
         mssg_form = MessengersForm(instance=request.user.profile)
-        '''avatar_form = AvatarChangeForm(instance=request.user.profile)'''
     return render(request, 'welcome/edit_profile.html', {
         'user_form': user_form,
         'profile_form': profile_form,

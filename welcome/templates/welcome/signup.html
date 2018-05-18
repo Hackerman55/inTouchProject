@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block content %}
+    <a id="logo" href="{% url 'home' %}">inTouch</a>
     <div class="signup">
         <form  method="post">
             {% csrf_token %}

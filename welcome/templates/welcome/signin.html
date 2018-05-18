@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block content %}
+    <a id="logo" href="{% url 'home' %}">inTouch</a>
     <div class="signin">
         {% if form.errors %}
             <p style="color: red">Your username and password didn't match. Please try again.</p>
@@ -14,11 +15,11 @@
             {% csrf_token %}
             {% for field in form %}
                 {% if field.name == 'username' %}
-                    <p>Логин</p>
+                    <p class="namefield">Логин</p>
                     {{ field }}
                 {% endif %}
                 {% if field.name == 'password' %}
-                    <p>Пароль</p>
+                    <p class="namefield">Пароль</p>
                     {{ field }}
                 {% endif %}
 
